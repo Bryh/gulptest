@@ -1,0 +1,1 @@
+console.log("login.js\u6587\u4EF6\u5DF2\u52A0\u8F7D\uFF1B"),require(["./js/config"],function(){define(["jquery"],function(a){console.log(a)})});

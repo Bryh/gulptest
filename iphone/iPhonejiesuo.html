@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8"/>
+<title>iPhone手机解锁效果</title>
+<style type="text/css">
+#iphone{position:relative;width:426px;height:640px;margin:10px auto;background:url(iphone.jpg) no-repeat;}
+#lock{position:absolute;left:50%;bottom:33px;width:358px;height:62px;margin-left:-179px;}
+#lock span{position:absolute;width:93px;height:62px;cursor:pointer;background:url(unlock_btn.jpg) no-repeat;}
+</style>
+<script src="/js/drag.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/animate.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var btn = document.getElementById("lock").children[0];
+		var main = document.getElementById("iphone").children[0];
+		draggable(btn, {
+			x : true,
+			y : false,
+			limit : true
+		});
+		
+		document.addEventListener("mouseup", function(){
+			
+			if(btn.offsetLeft >= 179) {
+				animate(btn, {left: btn.parentNode.offsetWidth-btn.offsetWidth}, function(){
+					btn.style.display = "none";
+					animate(main, {opacity: 100});
+				})
+			} else {
+				animate(btn, {left: 0})
+			}
+		})
+	}
+</script>
+</head>
+<body>
+<div id="iphone">
+	<img src="iphone2.jpg" style="opacity: 0;">
+	<div id="lock"><span></span></div>
+</div>
+
+
+</body></html>
